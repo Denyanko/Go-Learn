@@ -9,7 +9,7 @@ import (
 
 // RenderTemplate renders templates using html/template
 func RenderTemplateTest(w http.ResponseWriter, tmpl string) {
-	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.html")
+	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
 		fmt.Println("error parsing template: ", err)
@@ -48,7 +48,7 @@ func RenderTemplate(w http.ResponseWriter, t string) {
 func createTemplateCache(t string) error {
 	templates := []string{
 		fmt.Sprintf("./templates/%s", t),
-		"./templates/base.layout.html",
+		"./templates/base.layout.tmpl",
 	}
 
 	// parse the template
