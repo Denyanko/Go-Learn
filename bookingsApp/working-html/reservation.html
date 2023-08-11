@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
     <style>
         .my-footer {
             height: 5em;
@@ -19,8 +20,8 @@
             font-size: 80%;
         }
 
-        .red-text {
-            color: red;
+        .notie-container {
+            box-shadow: none;
         }
     </style>
 </head>
@@ -105,6 +106,7 @@
             integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://unpkg.com/notie"></script>
 
     <script>
         (function () {
@@ -127,19 +129,20 @@
 
 
         document.getElementById("colorBtn").addEventListener("click", function () {
-            let myEl = document.getElementById("myParagraph")
-
-            if (myEl.classList.contains("red-text")) {
-                myEl.classList.remove("red-text")
-            } else {
-                myEl.classList.add("red-text")
-            }
+            notify("This is my message", "success")
         })
 
         const elem = document.getElementById("reservationDates")
         const rangepicker = new DateRangePicker(elem, {
             format: "yyyy-mm-dd"
         })
+
+        function notify(msg, msgType){
+            notie.alert({
+                type: msgType,
+                text: msg,
+            })
+        }
     </script>
 </body>
 </html>
