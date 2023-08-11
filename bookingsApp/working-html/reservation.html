@@ -14,25 +14,7 @@
           href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker-bs4.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
-
-    <style>
-        .my-footer {
-            height: 5em;
-            background-color: #163b65;
-            margin-top: 1.5em;
-            padding: 1em;
-            color: white;
-            font-size: 80%;
-        }
-
-        .notie-container {
-            box-shadow: none;
-        }
-
-        .datepicker {
-            z-index: 10000;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
@@ -80,9 +62,9 @@
 
                 <form action="reservation.html" method="post" novalidate class="needs-validation">
                     <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-                    <div class="row">
+                    <div class="form-row">
                         <div class="col">
-                            <div class="row" id="reservation-dates">
+                            <div class="form-row" id="reservation-dates">
                                 <div class="col-md-6">
                                     <input required class="form-control" type="text" name="start" placeholder="Arrival">
                                 </div>
